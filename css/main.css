@@ -1,0 +1,31 @@
+#app-container {
+    max-width: 720px;
+    border: 1px solid black;
+    margin: 0 auto;
+}
+
+#app-container div {
+    padding: 5px 5px;
+    box-sizing: border-box;
+}
+
+.row {
+    display: block;
+    width: 100%;
+}
+
+.column {
+    display: inline-block;
+    width: 30%;
+    height: 200px;
+    margin: 10px;
+    border: 1px solid rgba(20, 20, 20, 0.3);
+}
+
+.column:hover {
+    background-color: #6499d4
+}
+
+h1 {
+    text-align: center;
+}
