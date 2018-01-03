@@ -10,10 +10,10 @@ function CreateGrid(GridSize) {
 			$('#row'+i).append('<div class="column""></div>');
 		}
 	}
-	
+}
 //this function start the game.
 //first it remove the menu and then it create the grid
 function StartGame(GridSize){
 	$("#GameMenu").css("display","none");
-	CreateGrid(3);
+	CreateGrid(GridSize);
 };
