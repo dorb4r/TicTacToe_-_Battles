@@ -13,7 +13,11 @@ function CreateGrid(GridSize) {
 }
 //this function start the game.
 //first it remove the menu and then it create the grid
-function StartGame(GridSize){
+//this function take 3 parameters
+//Game mode - will call the "gameModeChanger()" function.
+//LengthOfTurn - will pass to the "timer()" function.
+//GridSize - will pass to the "gridCreator()" function.
+function StartGame(GridSize,GameMode,LengthOfTurn){
 	$("#GameMenu").css("display","none");
 	CreateGrid(GridSize);
 };
