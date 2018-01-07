@@ -3,31 +3,35 @@
 
 <head>
     <title>TicTacToe - Battles</title>
+    <link rel="stylesheet"
+          href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Concert+One">
     <link rel="stylesheet" href="./css/main.css">
     <script src="./js/main.js"></script>
 </head>
 
 <body>
     <header>
-        <h1>TicTacToe - Battles</h1>
+        <h1 id = 'nameGame'>TicTacToe - Battles</h1>
     </header>
     <div id="GameMenu">
         <h2>Game Mode:</h2>
         <ul>
-            <li>Human VS Bot</li>
-            <li>Human VS Human</li>
-            <li>Turnament</li>
-            <li>Team Turnament</li>
+            <button>Human VS Bot</button>
+            <button>Human VS Human</button>
+            <button>Tournament</button>
+            <button>Team Tournament</button>
+            <button id = 'start' onclick="StartGame(3)">Start Game!</button>
         </ul>
-        <button onclick="StartGame(3)">Start Game!</button>
+        
     </div>
+
     <div id="container">
-        <div id="GameSectionLeft">
+        <div id="gameSectionLeft" class = 'gamers'>
         </div>
         <div id="app-container">
 
         </div>
-        <div id="GameSectionRight">
+        <div id="gameSectionRight" class = 'gamers'>
         </div>
     </div>
     <footer>
