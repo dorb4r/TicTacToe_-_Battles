@@ -1,6 +1,6 @@
 body {
     background: #FAE16DFF;
-    padding: 20px;
+    padding: 40px;
 }
 
 #nameGame {
@@ -51,17 +51,27 @@ button#start {
     box-sizing: border-box;
 }
 
-.gamers {
-    border: 2px solid black;
-    padding: 10px;
+#container {
+    display: grid;
+    grid-template-columns: 250px 750px 250px;
+    grid-template-rows: 100%;
 }
 
+.gamers {
+    border: 2px solid black;
+}
+
+
 #gameSectionLeft {
+    width: 250px;
+    height: 650px;
     float: left;
     display: none;
 }
 
 #gameSectionRight {
+    width: 250px;
+    height: 650px;
     float: right;
     display: none;
 }
@@ -80,6 +90,7 @@ button#start {
 }
 
 .column:hover {
+    cursor: pointer;
     background-color: #6499d4
 }
 
