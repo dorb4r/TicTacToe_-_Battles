@@ -16,8 +16,9 @@ h2 {
 }
 
 button {
+    background-color: #06F853FF;
     border-radius: 7px;
-    box-shadow: 0px 5px 5px #E1B609FF;
+    box-shadow: 0px 5px 1px #E1B609FF;
     padding: 5px;
     font-size: 20px;
     font-family: 'Lobster Two', serif;
@@ -26,17 +27,18 @@ button {
 
 button:hover {
     cursor: pointer;
-    box-shadow: 0 3px 5px #E1B609FF;
+    box-shadow: 0 3px 1px #E1B609FF;
 }
 button:active {
     cursor: pointer;
-    box-shadow: 0 1.5px 5px #E1B609FF;
+    box-shadow: 0 1.5px 1px #E1B609FF;
     outline: none;
 }
 
 button#start {
     font-family: 'Concert One', sans-serif;
     float: right;
+    background-color: #5EE802FF;
 }
 #app-container {
     max-width: 720px;
@@ -56,10 +58,12 @@ button#start {
 
 #gameSectionLeft {
     float: left;
+    display: none;
 }
 
 #gameSectionRight {
     float: right;
+    display: none;
 }
 
 .row {
