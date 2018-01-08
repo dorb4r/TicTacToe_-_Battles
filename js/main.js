@@ -19,5 +19,6 @@ function CreateGrid(GridSize) {
 //GridSize - will pass to the "gridCreator()" function.
 function StartGame(GridSize,GameMode,LengthOfTurn){
 	$("#GameMenu").css("display","none");
+	$('.gamers').show();
 	CreateGrid(GridSize);
 };
