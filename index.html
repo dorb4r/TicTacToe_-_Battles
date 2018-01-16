@@ -13,15 +13,25 @@
     <header>
         <h1 id = 'nameGame'>TicTacToe - Battles!</h1>
     </header>
-    <div id="GameMenu">
+    <div id="gameMenu">
         <h2>Game Mode:</h2>
-        <ul>
-            <button>Human VS Bot</button>
-            <button>Human VS Human</button>
-            <button>Tournament</button>
-            <button>Team Tournament</button>
+            <label class='mode'>Human VS Bot
+                <input type = 'radio' name = 'radio'>
+                <span class = 'checkmark'></span>
+            </label>
+            <label class='mode'>Human VS Human
+                <input type = 'radio' name = 'radio'>
+                <span class = 'checkmark'></span>
+            </label> 
+            <label class='mode'>Tournament
+                <input type = 'radio' name = 'radio'>
+                <span class = 'checkmark'></span>
+            </label>
+            <label class='mode'>Team Tournament
+                <input type = 'radio' name = 'radio'>
+                <span class = 'checkmark'></span>
+            </label>
             <button id = 'start' onclick="StartGame(3)">Start Game!</button>
-        </ul>
         
     </div>
 
