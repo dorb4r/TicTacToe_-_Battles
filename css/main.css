@@ -12,7 +12,67 @@ body {
 
 h2 {
     font-family: 'Lobster', serif;
-    font-size: 2em;
+    font-size: 30px;
+}
+
+
+/*edit the container of modes*/
+.mode {
+    display: inline-block;
+    position: relative;
+    padding-left: 25px;
+    padding-right: 25px;
+    cursor: pointer;
+    font-family: 'Lobster Two', serif;
+    font-size: 25px;
+    user-select: none;
+}
+/* hide the default radio button*/
+.mode input {
+    position: absolute;
+    opacity: 0;
+    cursor: pointer;
+}
+/*customize radio buttons*/
+.checkmark {
+    position: absolute;
+    margin-top: 5px;
+    top: 0;
+    left: 0;
+    height: 20px;
+    width: 20px;
+    background-color: #C5F78BFF;
+    border-radius: 50%;
+}
+
+.mode:hover input ~ .checkmark {
+    background-color: #ADF358FF;
+}
+
+/*change background when checked*/
+.mode input:checked ~ .checkmark {
+    background-color: #5EE802FF;
+}
+
+/*create indicator dot, hidden*/
+.checkmark:after {
+    content: "";
+    position: absolute;
+    display: none;
+}
+/*show indicator dot when checked*/
+.mode input:checked ~ .checkmark:after {
+    display: block;
+}
+
+/*style for dot*/
+.mode .checkmark:after {
+    top: 6px;
+    left: 6px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background-color: white;
 }
 
 button {
@@ -24,6 +84,7 @@ button {
     font-family: 'Lobster Two', serif;
 
 }
+
 
 button:hover {
     cursor: pointer;
@@ -40,6 +101,8 @@ button#start {
     float: right;
     background-color: #5EE802FF;
 }
+
+
 #app-container {
     max-width: 720px;
     border: 1px solid black;
