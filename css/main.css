@@ -128,14 +128,14 @@ button#start {
 
 #gameSectionLeft {
     width: 250px;
-    height: 650px;
+    height: 700px;
     float: left;
     display: none;
 }
 
 #gameSectionRight {
     width: 250px;
-    height: 650px;
+    height: 700px;
     float: right;
     display: none;
 }
@@ -161,4 +161,12 @@ button#start {
 
 h1 {
     text-align: center;
+}
+
+.player1 {
+  background-image: url("../img/X.jpg");
+}
+
+.player2 {
+  background-image: url("../img/O.jpg");
 }
