@@ -12,7 +12,7 @@ function CreateGrid(GridSize) {
 		var rowName='<div id="row'+i+'" class="row"></div>';
 		$("#app-container").append(rowName);
 		for (var j=0;j<GridSize;j++){
-			$('#row'+i).append('<div class="column""></div>');
+			$('#row'+i).append('<div class="column unchecked"></div>');
 		}
 	}
 }
@@ -26,10 +26,30 @@ function StartGame(GridSize,GameMode,LengthOfTurn){
 	$("#gameMenu").css("display","none");
 	$('.gamers').show();
 	CreateGrid(GridSize);
+	currentPlayer = 1;
 	setTimer(10);
+
+	$(".unchecked").click(function(){
+		if( $(this).hasClass("unchecked")) {
+			$(this).removeClass("unchecked");
+			$(this).addClass("checked player" + currentPlayer);
+			nextPlayer();
+		}
+
+	});
+
 };
 
+// This function set the current player
 
+function nextPlayer() {
+	if (currentPlayer === 1) {
+		currentPlayer = 2;
+	}
+	else {
+		currentPlayer = 1;
+	}
+};
 
 // This function set the timer
 
@@ -45,7 +65,7 @@ function setTimer(interval){
 		else
 		{
 			$('.playerTimer')[0].innerHTML = stopTime--;
-		}	
+		}
 	},1000);
 };
 
