@@ -10,12 +10,8 @@ audio["tic"].src = "assets/sounds/Tick-DeepFrozenApps-397275646.mp3"
 //the new created Rows has id row[i], for example the first row has id row0, and class row
 //the new created Columns has class column
 function CreateGrid(GridSize) {
-	for(var i=0;i<GridSize;i++){
-		var rowName='<div id="row'+i+'" class="row"></div>';
-		$("#app-container").append(rowName);
-		for (var j=0;j<GridSize;j++){
-			$('#row'+i).append('<div class="column unchecked"></div>');
-		}
+	for(var i=0;i<GridSize*GridSize;i++){
+		$('#app-container').append('<div class="column unchecked"></div>');
 	}
 }
 //this function start the game.

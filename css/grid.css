@@ -12,7 +12,7 @@
 
 [class*='col-'] {
 	margin: 0 -2px;
-	display: inline-block;
+	float: right;
 	min-height: 1px;
 	width:16.66%;
 	padding: 12px;
