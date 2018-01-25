@@ -25,7 +25,6 @@ function CreateGrid(GridSize) {
 //LengthOfTurn - will pass to the "timer()" function.
 //GridSize - will pass to the "gridCreator()" function.
 function StartGame(GridSize,GameMode,LengthOfTurn){
-	console.log("WOW");
 	$("#gameMenu").css("display","none");
 	$('#console-container').show();
 	CreateGrid(GridSize);
