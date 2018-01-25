@@ -1,24 +1,47 @@
+/* General Styles */
+
 body {
-    background: #FAE16DFF;
+    background: #3c3c3fFF;
     padding: 40px;
+	color: #b01717;
 }
+
+/*
+h1 {
+    text-align: center;
+}
+*/
+
+
+/* Header */
 
 #nameGame {
     font-family: 'Lobster', serif;
-    font-size: 3em;
+    font-size: 4em;
     text-decoration: underline;
-    text-decoration-style: double;
-}
-
-h2 {
-    font-family: 'Lobster', serif;
-    font-size: 30px;
+	text-shadow: -1px -1px 3px white;
+	text-align: center;
+/*     text-decoration-style: double; */
 }
 
 
-/*edit the container of modes*/
+/* Game Configuration Window */
+
+#game_mode {
+	margin:10px auto;
+	width: 50%;
+}
+
+#game_mode legend {
+    font-family: 'Lobster Two', serif;
+    text-decoration: underline;
+    font-size: 2.3em;
+    margin: 15px;
+}
+
+	/*edit the container of modes*/
 .mode {
-    display: inline-block;
+    display: block;
     position: relative;
     padding-left: 25px;
     padding-right: 25px;
@@ -27,13 +50,15 @@ h2 {
     font-size: 25px;
     user-select: none;
 }
-/* hide the default radio button*/
+
+	/* hide the default radio button*/
 .mode input {
     position: absolute;
     opacity: 0;
     cursor: pointer;
 }
-/*customize radio buttons*/
+
+	/*customize radio buttons*/
 .checkmark {
     position: absolute;
     margin-top: 5px;
@@ -49,18 +74,19 @@ h2 {
     background-color: #ADF358FF;
 }
 
-/*change background when checked*/
+	/*change background when checked*/
 .mode input:checked ~ .checkmark {
     background-color: #5EE802FF;
 }
 
-/*create indicator dot, hidden*/
+	/*create indicator dot, hidden*/
 .checkmark:after {
     content: "";
     position: absolute;
     display: none;
 }
-/*show indicator dot when checked*/
+
+	/*show indicator dot when checked*/
 .mode input:checked ~ .checkmark:after {
     display: block;
 }
@@ -85,73 +111,76 @@ button {
 
 }
 
-
 button:hover {
     cursor: pointer;
     box-shadow: 0 3px 1px #E1B609FF;
 }
+
 button:active {
     cursor: pointer;
     box-shadow: 0 1.5px 1px #E1B609FF;
     outline: none;
 }
 
-button#start {
+#start {
     font-family: 'Concert One', sans-serif;
     float: right;
     background-color: #5EE802FF;
 }
 
 
+/* The Game Console */
+
+#console-container {
+    display: none;
+/*
+    grid-template-columns: 250px 750px 250px;
+    grid-template-rows: 100%;
+*/
+}
+
 #app-container {
-    max-width: 720px;
-    border: 1px solid black;
-    margin: 0 auto;
+/*     max-width: 960px; */
+/*     border: 1px solid black; */
+    border-radius: 15px;
+    background-color: rgba(0, 0, 0, 0.3);
+    padding: 6px;
+    box-shadow: inset 0 0 10px 1px black;
+/*     margin: 0 auto; */
 }
 
 #app-container div {
-    padding: 5px 5px;
+/*     padding: 5px 5px; */
     box-sizing: border-box;
 
 }
 
-#container {
-    display: grid;
-    grid-template-columns: 250px 750px 250px;
-    grid-template-rows: 100%;
-}
-
-.gamers {
-    border: 2px solid black;
-}
-
-
-#gameSectionLeft {
-    width: 250px;
-    height: 700px;
-    float: left;
-    display: none;
-}
-
-#gameSectionRight {
-    width: 250px;
-    height: 700px;
-    float: right;
-    display: none;
+.players {
+/*     border: 2px solid black; */
+    height: 45vw; 
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 30%;
+    box-shadow: inset 0 0 10px 1px black;
+    background-color: rgba(0, 0, 0, 0.3);
 }
 
 .row {
     display: block;
     width: 100%;
+    padding: 0;
 }
 
 .column {
     display: inline-block;
     /*width: 30%;  Shay */
-    width: 200px; /* Shay */
-    height: 200px;
-    margin: 10px;
+    width: 30%; /* Shay */
+    height: 13vw;
+    margin: 1.65%;
     border: 1px solid rgba(20, 20, 20, 0.3);
+    background-size: contain;
+	background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
 }
 
 .column:hover {
@@ -159,14 +188,11 @@ button#start {
     background-color: #6499d4
 }
 
-h1 {
-    text-align: center;
-}
 
 .player1 {
-  background-image: url("../img/X.jpg");
+  background-image: url("../assets/images/X.jpg");
 }
 
 .player2 {
-  background-image: url("../img/O.jpg");
+  background-image: url("../assets/images/O.jpg");
 }

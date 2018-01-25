@@ -1,8 +1,10 @@
 // Definition of global variables
 
 var currentPlayer;	// can be 1 or 2
+var audio = {}
 
-
+audio["tic"] = new Audio();
+audio["tic"].src = "assets/sounds/Tick-DeepFrozenApps-397275646.mp3"
 
 //this function create Grid for the game, the grid is built from GirdSize Rows and in each Row there is GirdSize columns
 //the new created Rows has id row[i], for example the first row has id row0, and class row
@@ -23,8 +25,9 @@ function CreateGrid(GridSize) {
 //LengthOfTurn - will pass to the "timer()" function.
 //GridSize - will pass to the "gridCreator()" function.
 function StartGame(GridSize,GameMode,LengthOfTurn){
+	console.log("WOW");
 	$("#gameMenu").css("display","none");
-	$('.gamers').show();
+	$('#console-container').show();
 	CreateGrid(GridSize);
 	currentPlayer = 1;
 	setTimer(10);
@@ -34,6 +37,7 @@ function StartGame(GridSize,GameMode,LengthOfTurn){
 			$(this).removeClass("unchecked");
 			$(this).addClass("checked player" + currentPlayer);
 			nextPlayer();
+			audio["tic"].play();
 		}
 
 	});
@@ -74,3 +78,10 @@ function setTimer(interval){
 function playRandom() {
 
 };
+
+
+$("#start").click(function() {
+
+	console.log("WOW");
+});
+

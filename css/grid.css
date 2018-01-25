@@ -1,0 +1,62 @@
+.grid-container {
+	width: 100%;
+}
+
+/*-- clearfix --*/
+.row:befor,
+.row:after {
+	content:"";
+	display: table;
+	clear: both;
+}
+
+[class*='col-'] {
+	margin: 0 -2px;
+	display: inline-block;
+	min-height: 1px;
+	width:16.66%;
+	padding: 12px;
+/*
+	background-color: rgba(255,50,30,0.4);
+	border: 1px solid black;
+*/
+}
+
+.col-1 {
+	width: 12.5%;
+}
+
+.col-2 {
+	width: 25%;
+}
+
+.col-3 {
+	width: 37.5%
+}
+
+.col-4 {
+	width: 50%;
+}
+
+.col-5 {
+	width: 62.5%;
+}
+
+.col-6 {
+	width: 75%;
+}
+
+.col-7 {
+	width: 87.5%;
+}
+
+.col-8 {
+	width: 100%;
+}
+/*-- setting border box on all element inside the grid --*/
+.grid-container * {
+	box-sizing: border-box;
+	-webkit-box-sizing: border-box;
+	-moz-box-sizing: border-box;
+	-ms-box-sizing: border-box;
+}

@@ -6,6 +6,8 @@
     <link rel="stylesheet"
           href="https://fonts.googleapis.com/css?family=Lobster|Lobster+Two|Concert+One">
     <link rel="stylesheet" href="./css/main.css">
+    <link rel="stylesheet" href="css/grid.css">
+    <link rel="stylesheet" href="css/normalize.css">
     <script src="./js/main.js"></script>
 </head>
 
@@ -14,41 +16,42 @@
         <h1 id = 'nameGame'>TicTacToe - Battles!</h1>
     </header>
     <div id="gameMenu">
-        <h2>Game Mode:</h2>
-            <label class='mode'>Human VS Bot
-                <input type = 'radio' name = 'radio'>
-                <span class = 'checkmark'></span>
-            </label>
-            <label class='mode'>Human VS Human
-                <input type = 'radio' name = 'radio'>
-                <span class = 'checkmark'></span>
-            </label> 
-            <label class='mode'>Tournament
-                <input type = 'radio' name = 'radio'>
-                <span class = 'checkmark'></span>
-            </label>
-            <label class='mode'>Team Tournament
-                <input type = 'radio' name = 'radio'>
-                <span class = 'checkmark'></span>
-            </label>
-            <button id = 'start' onclick="StartGame(3)">Start Game!</button>
-        
+	    <div id="game_mode">
+        	<legend>Game Mode:</legend>
+	            <label class='mode' for="h_vs_b">Human VS Bot
+	                <input type = 'radio' name='h_vs_b'>
+	                <span class = 'checkmark'></span>
+	            </label>
+	            <label class='mode'for="h_vs_h">Human VS Human
+	                <input type = 'radio' name = 'h_vs_h'>
+	                <span class = 'checkmark'></span>
+	            </label> 
+	            <label class='mode' for="tournament">Tournament
+	                <input type = 'radio' name = 'tournament'>
+	                <span class = 'checkmark'></span>
+	            </label>
+	            <label class='mode' for="team_tournament">Team Tournament
+	                <input type='radio' name = 'team_tournament'>
+	                <span class='checkmark'></span>
+	            </label>
+	            <button id = 'start' onclick="StartGame(3)">Start Game!</button>
+	    </div>
     </div>
-
-    <div id="container">
-        <div id="gameSectionLeft" class = 'gamers'>
+    <div id="console-container" class="grid-container">
+	    <div class="col-2">
+	        <div id="gameSectionLeft" class='players'></div>
+	    </div>
+	    <div class="col-4">
+	        <div id="app-container"></div>
         </div>
-        
-        <div id="app-container">
-        </div>
-        
-        <div id="gameSectionRight" class = 'gamers'>
+        <div class="col-2">
+	        <div id="gameSectionRight" class='players'></div>
         </div>
     </div>
     <footer>
         
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <audio id="tic_sound" src="assets/sounds/Tick-DeepFrozenApps-397275646.mp3"></audio>
 </body>
-
 </html>
