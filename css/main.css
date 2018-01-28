@@ -222,7 +222,7 @@ button:active {
     padding: 0;
 }
 
-.column {
+.unchecked {
     display: inline-block;
     width: 30%; /* Shay */
     height: 13vw;
@@ -234,11 +234,26 @@ button:active {
     max-height: 133px;
 }
 
-.column:hover {
+.unchecked:hover {
     cursor: pointer;
     background-color: #6499d4
 }
+.checked {
+    display: inline-block;
+    width: 30%; /* Shay */
+    height: 13vw;
+    margin: 1.65%;
+    border: 1px solid rgba(20, 20, 20, 0.3);
+    background-size: contain;
+    background-color: rgba(255, 255, 255, 0.3);
+    border-radius: 10px;
+    max-height: 133px;
+}
 
+.checked:hover {
+    cursor: pointer;
+    background-color: #6499d4
+}
 
 .player1 {
   background-image: url("../assets/images/X.jpg");
