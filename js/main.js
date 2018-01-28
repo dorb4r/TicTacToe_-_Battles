@@ -21,7 +21,17 @@ function CreateGrid(GridSize) {
 
 
 // This function play random move when time out
-function randomMove() {
+function playRandom(playerNum, GridSize) {
+	let randomColSelected = false;
+	while (randomColSelected === false){
+		let randomColNum = Math.floor(Math.random() * GridSize); //return value between 0 to GridSize
+		let randomCol = $('.column'+ randomColNum);
+		if (randomCol.hasClass("unchecked")) {
+			randomCol.removeClass("unchecked");
+			randomCol.addClass("checked player" + (playerNum+1));
+			randomColSelected = true;
+		}
+	}
 	
 };
 
@@ -39,7 +49,7 @@ $(document).ready(function() {
 		timerInterval = setInterval(function(){
 			if (stopTime <= 0 ) {
 				clearTimer(playerNum)
-	// 			playRandom();
+	 			playRandom(playerNum, 9); //TODO: Create gridSize global variable
 				nextPlayer();
 			}
 			else
