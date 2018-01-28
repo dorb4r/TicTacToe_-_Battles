@@ -3,6 +3,10 @@
 var currentPlayer;	// can be 1 or 2
 var audio = {};
 var timerInterval; 
+var playerOneScore = new Array(9);
+var playerTwoScore = new Array(9);
+
+
 
 // Sound JSON.
 audio["tic"] = new Audio();
@@ -44,6 +48,16 @@ function clearTimer(playerNum) {
 
 $(document).ready(function() {
 	function setTimer(interval,player){
+		var check=checkGame();
+		if (check===1) {
+			$('.timer')[1].innerHTML = "winner";
+			return;
+		}
+		else if(check===2){
+			$('.timer')[0].innerHTML = "winner";
+			return;
+		}
+
 		stopTime = interval;
 		var playerNum = player - 1;
 		timerInterval = setInterval(function(){
@@ -87,6 +101,30 @@ $(document).ready(function() {
 			setTimer(5,1);
 		}
 	};
+
+//function to check if there is a winner in the game
+// this function checks all the possibilities for a win
+	function checkGame() {
+		if((playerOneScore[0]===1 && playerOneScore[1]===1 && playerOneScore[2]===1) 
+			|| (playerOneScore[3]===1 && playerOneScore[4]===1 && playerOneScore[5]===1) 
+			|| (playerOneScore[6]===1 && playerOneScore[7]===1 && playerOneScore[8]===1) 
+			|| (playerOneScore[0]===1 && playerOneScore[3]===1 && playerOneScore[6]===1) 
+			|| (playerOneScore[1]===1 && playerOneScore[4]===1 && playerOneScore[7]===1)
+			|| (playerOneScore[2]===1 && playerOneScore[5]===1 && playerOneScore[8]===1)
+			|| (playerOneScore[0]===1 && playerOneScore[4]===1 && playerOneScore[8]===1)
+			|| (playerOneScore[6]===1 && playerOneScore[4]===1 && playerOneScore[2]===1))
+				 return 1;
+
+		else if((playerTwoScore[0]===1 && playerTwoScore[1]===1 && playerTwoScore[2]===1) 
+				|| (playerTwoScore[3]===1 && playerTwoScore[4]===1 && playerTwoScore[5]===1) 
+				|| (playerTwoScore[6]===1 && playerTwoScore[7]===1 && playerTwoScore[8]===1) 
+				|| (playerTwoScore[0]===1 && playerTwoScore[3]===1 && playerTwoScore[6]===1) 
+				|| (playerTwoScore[1]===1 && playerTwoScore[4]===1 && playerTwoScore[7]===1)
+				|| (playerTwoScore[2]===1 && playerTwoScore[5]===1 && playerTwoScore[8]===1)
+				|| (playerTwoScore[0]===1 && playerTwoScore[4]===1 && playerTwoScore[8]===1)
+				|| (playerTwoScore[6]===1 && playerTwoScore[4]===1 && playerTwoScore[2]===1)) 
+					return 2;
+	};
 	
 	console.log("ready!");
 	$("#start").click(function() {
@@ -97,6 +135,12 @@ $(document).ready(function() {
 		if( $(this).hasClass("unchecked")) {
 			$(this).removeClass("unchecked");
 			$(this).addClass("checked player" + currentPlayer);
+			if (currentPlayer==1){
+				playerOneScore[parseInt($(this).attr("class").charAt(6))]=1;	
+			}
+			else{
+				playerTwoScore[parseInt($(this).attr("class").charAt(6))]=1;
+			}
 			nextPlayer();
 			audio["tic"].play();
 		}
