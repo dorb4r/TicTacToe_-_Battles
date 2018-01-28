@@ -217,16 +217,18 @@ body {
 	
 }
 
+/*
 .row {
     display: block;
     width: 100%;
     padding: 0;
 }
+*/
 
 .unchecked {
     display: inline-block;
     width: 30%; /* Shay */
-    height: 13vw;
+    height: 12vw;
     margin: 1.65%;
     border: 1px solid rgba(20, 20, 20, 0.3);
     background-size: contain;
@@ -242,7 +244,7 @@ body {
 .checked {
     display: inline-block;
     width: 30%; /* Shay */
-    height: 13vw;
+    height: 12vw;
     margin: 1.65%;
     border: 1px solid rgba(20, 20, 20, 0.3);
     background-size: contain;

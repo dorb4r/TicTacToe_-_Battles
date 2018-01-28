@@ -80,7 +80,6 @@ $(document).ready(function() {
 	
 	console.log("ready!");
 	$("#start").click(function() {
-		console.log("WOW");
 		StartGame(3);
 	});
 	
