@@ -13,7 +13,7 @@ audio["tic"].src = "assets/sounds/Tick-DeepFrozenApps-397275646.mp3"
 // the new created Columns has class column
 function CreateGrid(GridSize) {
 	for(var i=0;i<GridSize*GridSize;i++){
-		$('#app-container').append('<div class="column unchecked"></div>');
+		$('#app-container').append('<div class="column'+i+' unchecked"></div>');
 	}
 }
 //this function start the game.
