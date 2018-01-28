@@ -8,7 +8,7 @@
     <link rel="stylesheet" href="./css/main.css">
     <link rel="stylesheet" href="css/grid.css">
     <link rel="stylesheet" href="css/normalize.css">
-    <script src="./js/main.js"></script>
+    
 </head>
 
 <body>
@@ -40,7 +40,7 @@
 	                <span class='checkmark'></span>
 	            </label>
 -->
-	            <button id='start' onclick="StartGame(3)">Start Game!</button>
+	            <button id='start'>Start Game!</button>
 	    </div>
     </div>
     <div id="console-container" class="grid-container">
@@ -50,7 +50,7 @@
 			        <p class="name">Player 12</p>
 		        </div>
 		        <div>
-			        <p class="timer">5</p>
+			        <p class="timer"></p>
 		        </div>
    	        </div>
 	    </div>
@@ -60,7 +60,7 @@
         <div class="col-2">
 	        <div id="p1" class='players'>
 		        <p class="name">Player 1</p>
-		        <p class="timer">5</p>
+		        <p class="timer"></p>
 	        </div>
         </div>
     </div>
@@ -68,6 +68,7 @@
         
     </footer>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="./js/main.js"></script>
     <audio id="tic_sound" src="assets/sounds/Tick-DeepFrozenApps-397275646.mp3"></audio>
 </body>
 </html>
