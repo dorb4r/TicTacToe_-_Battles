@@ -29,42 +29,52 @@ function playRandom(playerNum, GridSize) {
         let randomCol = $('.column' + randomColNum);
         if (randomCol.hasClass("unchecked")) {
             randomCol.removeClass("unchecked");
-            randomCol.addClass("checked player" + (playerNum + 1));
+            randomCol.addClass("checked player" + currentPlayer);
+            if (currentPlayer == 1) {
+                playerOneScore[parseInt(randomCol.attr("class").charAt(6))] = 1;
+            }
+            else {
+                playerTwoScore[parseInt(randomCol.attr("class").charAt(6))] = 1;
+            }
             randomColSelected = true;
+            
         }
     }
 };
 
-function clearTimer(playerNum) {
+function clearTimer(playerNum,actionToDo) {
     clearInterval(timerInterval);
-    $('.timer')[playerNum].innerHTML = "Time out";
+    if(actionToDo===1)
+    	$('.timer')[playerNum].innerHTML = "Time out";
+    else
+    	$('.timer')[playerNum].innerHTML = "Nice";
 }
 
 
 
 $(document).ready(function() {
-    function setTimer(interval, player) {
-        var check = checkGame();
-        if (check === 1) {
-            $('.timer')[1].innerHTML = "winner";
-            return;
-        } else if (check === 2) {
-            $('.timer')[0].innerHTML = "winner";
-            return;
-        }
+	//event methods
+	$("#start").click(function() {
+        StartGame(3);
+         document.getElementById("PlayerOneName").innerHTML = $("#PlayerOneInput").val();
+         document.getElementById("PlayerTwoName").innerHTML = $("#PlayerTwoInput").val();
+    });
 
-        stopTime = interval;
-        var playerNum = player - 1;
-        timerInterval = setInterval(function() {
-            if (stopTime <= 0) {
-                clearTimer(playerNum)
-                playRandom(playerNum, 9); //TODO: Create gridSize global variable
-                nextPlayer();
+    $("#app-container").on("click", ".unchecked", function() {
+        if ($(this).hasClass("unchecked")) {
+            $(this).removeClass("unchecked");
+            $(this).addClass("checked player" + currentPlayer);
+            if (currentPlayer == 1) {
+            	clearTimer(1,0);
+                playerOneScore[parseInt($(this).attr("class").charAt(6))] = 1;
             } else {
-                $('.timer')[playerNum].innerHTML = stopTime--;
+            	clearTimer(0,0);
+                playerTwoScore[parseInt($(this).attr("class").charAt(6))] = 1;
             }
-        }, 1000);
-    };
+            nextPlayer();
+            audio["tic"].play();
+        }
+    });
 
     //this function start the game.
     //first it remove the menu and then it create the grid
@@ -77,20 +87,43 @@ $(document).ready(function() {
         $('#console-container').show();
         CreateGrid(GridSize);
         currentPlayer = 1;
-        setTimer(5, 1);
+        setTimer(5, 2);
     };
 
-    // This function set the current player
+    function setTimer(interval, player) {
+        
+        stopTime = interval;
+        var playerNum = player - 1;
+        timerInterval = setInterval(function() {
+            if (stopTime <= 0) {
+                clearTimer(playerNum,1);
+                playRandom(playerNum, 9); //TODO: Create gridSize global variable
+                nextPlayer();
+            } else {
+                $('.timer')[playerNum].innerHTML = stopTime--;
+            }
+        }, 1000);
+    };
 
+
+    // This function set the current player
     function nextPlayer() {
+    	var check = checkGame();
+        if (check === 1) {
+            $('.timer')[1].innerHTML = "winner";
+            return;
+        } else if (check === 2) {
+            $('.timer')[0].innerHTML = "winner";
+            return;
+        }
+
         if (currentPlayer === 1) {
-            clearTimer(0);
+
             currentPlayer = 2;
-            setTimer(5, 2);
-        } else {
-            clearTimer(1);
-            currentPlayer = 1;
             setTimer(5, 1);
+        } else {
+            currentPlayer = 1;
+            setTimer(5, 2);
         }
     };
 
@@ -118,23 +151,5 @@ $(document).ready(function() {
             return 2;
     };
 
-    $("#start").click(function() {
-        StartGame(3);
-         document.getElementById("PlayerOneName").innerHTML = $("#PlayerOneInput").val();
-         document.getElementById("PlayerTwoName").innerHTML = $("#PlayerTwoInput").val();
-    });
 
-    $("#app-container").on("click", ".unchecked", function() {
-        if ($(this).hasClass("unchecked")) {
-            $(this).removeClass("unchecked");
-            $(this).addClass("checked player" + currentPlayer);
-            if (currentPlayer == 1) {
-                playerOneScore[parseInt($(this).attr("class").charAt(6))] = 1;
-            } else {
-                playerTwoScore[parseInt($(this).attr("class").charAt(6))] = 1;
-            }
-            nextPlayer();
-            audio["tic"].play();
-        }
-    });
 });
