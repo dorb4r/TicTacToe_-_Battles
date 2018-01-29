@@ -268,3 +268,10 @@ body {
 #rematch{
     display: none;
 }
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+table{
+    background-color: #f1f1c1;
+}

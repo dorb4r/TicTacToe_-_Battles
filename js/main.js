@@ -4,7 +4,8 @@ var audio = {};
 var timerInterval;
 var playerOneScore = new Array(9);
 var playerTwoScore = new Array(9);
-
+var playerOneTotalScore = 0;
+var playerTwoTotalScore = 0;
 
 
 // Sound JSON.
@@ -110,18 +111,20 @@ $(document).ready(function() {
     function nextPlayer() {
     	var check = checkGame();
         if (check === 1) {
-            
+            playerOneTotalScore++;
             $('#game_mode').css("display","none");
             $('#rematch').css("display","block");
             $("#gameMenu").css("display", "block");
             document.getElementById("winnerName").innerHTML = $("#PlayerOneInput").val()+" is the Winner";
+            document.getElementById("PlayerOneScore").innerHTML = playerOneTotalScore;
             return;
         } else if (check === 2) {
-            $('.timer')[0].innerHTML = "winner";
+        	playerTwoTotalScore++;
             $('#game_mode').css("display","none");
             $('#rematch').css("display","block");
             $("#gameMenu").css("display", "block");
             document.getElementById("winnerName").innerHTML = $("#PlayerTwoInput").val()+" is the Winner";
+            document.getElementById("PlayerTwoScore").innerHTML = playerTwoTotalScore;
             return;
         }
 
