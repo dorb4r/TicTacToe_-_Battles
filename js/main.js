@@ -110,10 +110,18 @@ $(document).ready(function() {
     function nextPlayer() {
     	var check = checkGame();
         if (check === 1) {
-            $('.timer')[1].innerHTML = "winner";
+            
+            $('#game_mode').css("display","none");
+            $('#rematch').css("display","block");
+            $("#gameMenu").css("display", "block");
+            document.getElementById("winnerName").innerHTML = $("#PlayerOneInput").val()+" is the Winner";
             return;
         } else if (check === 2) {
             $('.timer')[0].innerHTML = "winner";
+            $('#game_mode').css("display","none");
+            $('#rematch').css("display","block");
+            $("#gameMenu").css("display", "block");
+            document.getElementById("winnerName").innerHTML = $("#PlayerTwoInput").val()+" is the Winner";
             return;
         }
 

@@ -265,3 +265,6 @@ body {
 .player2 {
   background-image: url("../assets/images/O.jpg");
 }
+#rematch{
+    display: none;
+}
