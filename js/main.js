@@ -17,8 +17,11 @@ audio["tic"].src = "assets/sounds/Tick-DeepFrozenApps-397275646.mp3"
 // 
 // the new created Columns has class column
 function CreateGrid(GridSize) {
-    for (var i = 0; i < GridSize * GridSize; i++) {
+    $('#app-container').empty();
+    for (let i = 0; i < GridSize * GridSize; i++) {
         $('#app-container').append('<div class="column' + i + ' unchecked"></div>');
+        playerOneScore[i] = 0;
+        playerTwoScore[i] = 0;
     }
 }
 
@@ -57,9 +60,14 @@ $(document).ready(function() {
 	//event methods
 	$("#start").click(function() {
         StartGame(3);
-         document.getElementById("PlayerOneName").innerHTML = $("#PlayerOneInput").val();
-         document.getElementById("PlayerTwoName").innerHTML = $("#PlayerTwoInput").val();
+        document.getElementById("PlayerOneName").innerHTML = $("#PlayerOneInput").val();
+        document.getElementById("PlayerTwoName").innerHTML = $("#PlayerTwoInput").val();
     });
+
+    $("#rematchButton").click(function() {
+        StartGame(3);
+    });
+
 
     $("#app-container").on("click", ".unchecked", function() {
         if ($(this).hasClass("unchecked")) {
