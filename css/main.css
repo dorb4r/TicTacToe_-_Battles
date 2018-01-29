@@ -160,7 +160,9 @@ body {
     margin: 10px auto;
     width: 60%;
     padding: 15px 0;
-    font-size: 2em
+    font-size: 2em;
+    border-radius: 50px;
+    border:1px solid green;
 }
 
 #start:hover {
