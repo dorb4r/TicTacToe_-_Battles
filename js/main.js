@@ -120,6 +120,8 @@ $(document).ready(function() {
 
     $("#start").click(function() {
         StartGame(3);
+         document.getElementById("PlayerOneName").innerHTML = $("#PlayerOneInput").val();
+         document.getElementById("PlayerTwoName").innerHTML = $("#PlayerTwoInput").val();
     });
 
     $("#app-container").on("click", ".unchecked", function() {
