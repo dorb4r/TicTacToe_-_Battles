@@ -6,7 +6,7 @@ var playerOneScore = new Array(9);
 var playerTwoScore = new Array(9);
 var playerOneTotalScore = 0;
 var playerTwoTotalScore = 0;
-
+var PlayCount = 0;
 
 // Sound JSON.
 audio["tic"] = new Audio();
@@ -34,6 +34,7 @@ function playRandom(playerNum, GridSize) {
         if (randomCol.hasClass("unchecked")) {
             randomCol.removeClass("unchecked");
             randomCol.addClass("checked player" + currentPlayer);
+            PlayCount++;
             if (currentPlayer == 1) {
                 playerOneScore[parseInt(randomCol.attr("class").charAt(6))] = 1;
             }
@@ -54,7 +55,33 @@ function clearTimer(playerNum,actionToDo) {
     	$('.timer')[playerNum].innerHTML = "Nice";
 }
 
-
+function gameEnd(playerNum){
+	if (playerNum===1){
+		playerOneTotalScore++;
+        $('#game_mode').css("display","none");
+        $('#rematch').css("display","block");
+        $("#gameMenu").css("display", "block");
+        $("#winnerName").html($("#PlayerOneInput").val()+" is the Winner"); 
+        $("#PlayerOneScore").html(playerOneTotalScore); 
+	}
+	else if(playerNum===2){
+		playerTwoTotalScore++;
+	    $('#game_mode').css("display","none");
+	    $('#rematch').css("display","block");
+	    $("#gameMenu").css("display", "block");
+	    $("#winnerName").html($("#PlayerTwoInput").val()+" is the Winner"); 
+        $("#PlayerTwoScore").html(playerTwoTotalScore);
+	}
+	else{
+		$('#game_mode').css("display","none");
+	    $('#rematch').css("display","block");
+	    $("#gameMenu").css("display", "block");
+	    $("#winnerName").html("That was a draw");
+	    $("#PlayerOneScore").html(playerOneTotalScore);
+	    $("#PlayerTwoScore").html(playerTwoTotalScore);
+	}
+	
+}
 
 $(document).ready(function() {
 	//event methods
@@ -74,6 +101,7 @@ $(document).ready(function() {
 
     $("#rematchButton").click(function() {
         StartGame(3);
+        PlayCount=0;
     });
 
 
@@ -88,6 +116,7 @@ $(document).ready(function() {
             	clearTimer(0,0);
                 playerTwoScore[parseInt($(this).attr("class").charAt(6))] = 1;
             }
+            PlayCount++;
             nextPlayer();
             audio["tic"].play();
         }
@@ -125,27 +154,13 @@ $(document).ready(function() {
 
     // This function set the current player
     function nextPlayer() {
-    	var check = checkGame();
-        if (check === 1) {
-            playerOneTotalScore++;
-            $('#game_mode').css("display","none");
-            $('#rematch').css("display","block");
-            $("#gameMenu").css("display", "block");
-            $("#winnerName").html($("#PlayerOneInput").val()+" is the Winner"); 
-            $("#PlayerOneScore").html(playerOneTotalScore); 
-            return;
-        } else if (check === 2) {
-        	playerTwoTotalScore++;
-            $('#game_mode').css("display","none");
-            $('#rematch').css("display","block");
-            $("#gameMenu").css("display", "block");
-            $("#winnerName").html($("#PlayerTwoInput").val()+" is the Winner"); 
-            $("#PlayerTwoScore").html(playerTwoTotalScore);
-            return;
-        }
+    	if (PlayCount>8) {
+    		gameEnd(3);
+    		return;
+    		}
+    	if (checkGame()===1) return;
 
         if (currentPlayer === 1) {
-
             currentPlayer = 2;
             setTimer(5, 1);
         } else {
@@ -165,7 +180,10 @@ $(document).ready(function() {
             (playerOneScore[2] === 1 && playerOneScore[5] === 1 && playerOneScore[8] === 1) ||
             (playerOneScore[0] === 1 && playerOneScore[4] === 1 && playerOneScore[8] === 1) ||
             (playerOneScore[6] === 1 && playerOneScore[4] === 1 && playerOneScore[2] === 1))
-            return 1;
+            {
+            	gameEnd(1);
+            	return 1;
+			}
 
         else if ((playerTwoScore[0] === 1 && playerTwoScore[1] === 1 && playerTwoScore[2] === 1) ||
             (playerTwoScore[3] === 1 && playerTwoScore[4] === 1 && playerTwoScore[5] === 1) ||
@@ -175,7 +193,10 @@ $(document).ready(function() {
             (playerTwoScore[2] === 1 && playerTwoScore[5] === 1 && playerTwoScore[8] === 1) ||
             (playerTwoScore[0] === 1 && playerTwoScore[4] === 1 && playerTwoScore[8] === 1) ||
             (playerTwoScore[6] === 1 && playerTwoScore[4] === 1 && playerTwoScore[2] === 1))
-            return 2;
+            {
+            	gameEnd(2);
+            	return 1;
+            }
     };
 
 
