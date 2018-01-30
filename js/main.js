@@ -60,8 +60,16 @@ $(document).ready(function() {
 	//event methods
 	$("#start").click(function() {
         StartGame(3);
-        document.getElementById("PlayerOneName").innerHTML = $("#PlayerOneInput").val();
-        document.getElementById("PlayerTwoName").innerHTML = $("#PlayerTwoInput").val();
+        if ($('#PlayerOneInput').val()===''){
+        	$('.playerOneName').html('Player 1')
+        } else {
+        	$(".playerOneName").html($("#PlayerOneInput").val());
+        };
+        if ($('#PlayerTwoInput').val()===''){
+        	$('.playerTwoName').html('Player 2')
+        } else {
+        	$(".playerTwoName").html($("#PlayerTwoInput").val());
+        };
     });
 
     $("#rematchButton").click(function() {
@@ -123,16 +131,16 @@ $(document).ready(function() {
             $('#game_mode').css("display","none");
             $('#rematch').css("display","block");
             $("#gameMenu").css("display", "block");
-            document.getElementById("winnerName").innerHTML = $("#PlayerOneInput").val()+" is the Winner";
-            document.getElementById("PlayerOneScore").innerHTML = playerOneTotalScore;
+            $("#winnerName").html($("#PlayerOneInput").val()+" is the Winner"); 
+            $("#PlayerOneScore").html(playerOneTotalScore); 
             return;
         } else if (check === 2) {
         	playerTwoTotalScore++;
             $('#game_mode').css("display","none");
             $('#rematch').css("display","block");
             $("#gameMenu").css("display", "block");
-            document.getElementById("winnerName").innerHTML = $("#PlayerTwoInput").val()+" is the Winner";
-            document.getElementById("PlayerTwoScore").innerHTML = playerTwoTotalScore;
+            $("#winnerName").html($("#PlayerTwoInput").val()+" is the Winner"); 
+            $("#PlayerTwoScore").html(playerTwoTotalScore);
             return;
         }
 
