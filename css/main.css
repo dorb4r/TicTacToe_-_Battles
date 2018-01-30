@@ -162,7 +162,9 @@ body {
     margin: 10px auto;
     width: 60%;
     padding: 15px 0;
-    font-size: 2em
+    font-size: 2em;
+    border-radius: 50px;
+    border:1px solid green;
 }
 
 #start:hover {
@@ -219,16 +221,18 @@ body {
 	
 }
 
+/*
 .row {
     display: block;
     width: 100%;
     padding: 0;
 }
+*/
 
 .unchecked {
     display: inline-block;
     width: 30%; /* Shay */
-    height: 13vw;
+    height: 12vw;
     margin: 1.65%;
     border: 1px solid rgba(20, 20, 20, 0.3);
     background-size: contain;
@@ -244,7 +248,7 @@ body {
 .checked {
     display: inline-block;
     width: 30%; /* Shay */
-    height: 13vw;
+    height: 12vw;
     margin: 1.65%;
     border: 1px solid rgba(20, 20, 20, 0.3);
     background-size: contain;
@@ -264,4 +268,14 @@ body {
 
 .player2 {
   background-image: url("../assets/images/O.jpg");
+}
+#rematch{
+    display: none;
+}
+table, th, td {
+    border: 1px solid white;
+    border-collapse: collapse;
+}
+table{
+    background-color: #f1f1c1;
 }

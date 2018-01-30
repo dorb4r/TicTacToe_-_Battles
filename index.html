@@ -19,8 +19,8 @@
     <div id="gameMenu" class="window">
 	    <div id="game_mode">
 		    <legend>Player vs Player</legend>
-			<input type="text" name="p1" value="Player 1">
-			<input type="text" name="p2" value="Player 2">
+			<input id="PlayerOneInput" type="text" name="p1" value="Player 1">
+			<input id="PlayerTwoInput" type="text" name="p2" value="Player 2">
 <!--
         	<legend>Game Mode:</legend>
 	            <label class='mode' for="h_vs_b">Human VS Bot
@@ -42,12 +42,31 @@
 -->
 	            <button id='start'>Start Game!</button>
 	    </div>
+	    <div id="rematch">
+	    	<legend id="winnerName"></legend>
+	    	<table>
+	    		<thead>
+	    			<tr>
+		    			<td>player one</td>
+		    			<td>player two</td>
+		    		</tr>
+	    		</thead>
+	    		<tbody>
+	    			<tr>
+	    				<td id="PlayerOneScore"></td>
+	    				<td id="PlayerTwoScore"></td>
+	    			</tr>
+	    		</tbody>
+	    	</table>
+	    	<button id="rematchButton">Let's Play again</button>
+	    </div>
+    </div>
     </div>
     <div id="console-container" class="grid-container">
 	    <div class="col-2">
 	        <div id="p2" class='players'>
 		        <div>
-			        <p class="name">Player 12</p>
+			        <p id="PlayerTwoName" class="name"></p>
 		        </div>
 		        <div>
 			        <p class="timer"></p>
@@ -59,7 +78,7 @@
         </div>
         <div class="col-2">
 	        <div id="p1" class='players'>
-		        <p class="name">Player 1</p>
+		        <p id="PlayerOneName" class="name"></p>
 		        <p class="timer"></p>
 	        </div>
         </div>
