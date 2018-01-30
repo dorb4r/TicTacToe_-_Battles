@@ -271,10 +271,40 @@ body {
 }
 #rematch{
     display: none;
+    text-align: center;
 }
+
+#rematchButton {
+    cursor: pointer;
+    margin-top: 4px;
+    padding: 4px;
+    font-family: 'Concert One', sans-serif;
+    border-radius: 35px;
+    border-color: #5EE802FF;
+    background-color: #5EE802FF;
+    box-shadow: 0px 5px 1px #44A101FF;
+}
+#rematchButton:hover {
+    cursor: pointer;
+    box-shadow: 0 3px 1px #44A101FF;
+}
+
+#rematchButton:active {
+    cursor: pointer;
+    box-shadow: 0 1.5px 1px #44A101FF;
+    outline: none;
+}
+#winnerName{
+    padding-bottom: 4px;
+    font-weight: bold;
+    font-size: 25px;
+}
+
 table, th, td {
     border: 1px solid white;
-    border-collapse: collapse;
+    border-spacing: 0;
+    margin: 0 auto;
+    width: 50%;
 }
 table{
     background-color: #f1f1c1;
